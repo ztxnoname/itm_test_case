@@ -1,0 +1,13 @@
+  - name: Run app in docker_compose
+    hosts: localhost
+    gather_facts: no
+    tasks:
+      - name: Stop existing service
+        docker_compose:
+          project_src: compose
+          state: absent
+      
+      - name: Start service
+        docker_compose:
+          project_src: compose
+
